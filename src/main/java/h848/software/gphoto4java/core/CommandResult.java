@@ -1,8 +1,8 @@
 package h848.software.gphoto4java.core;
 
 /**
- * Zapouzdřuje výsledek po spuštění příkazu v příkazové řádce.
- * Udržuje návratový kód, standardní výstup (stdout) a chybový výstup (stderr).
+ * Encapsulates the result of executing a command in the command line.
+ * Holds the exit code, standard output (stdout), and error output (stderr).
  */
 public class CommandResult {
     
@@ -29,7 +29,7 @@ public class CommandResult {
     }
 
     /**
-     * Vrací true, pokud příkaz proběhl úspěšně (obvykle návratový kód 0).
+     * Returns true if the command executed successfully (usually exit code 0).
      */
     public boolean isSuccess() {
         return exitCode == 0;

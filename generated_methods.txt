@@ -1,0 +1,2527 @@
+    /**
+     * Gets Bulb Mode (Read-Only)
+     */
+    public String getBulb() {
+        return getConfig("bulb");
+    }
+
+    /**
+     * Gets Drive Nikon DSLR Autofocus (Read-Only)
+     */
+    public String getAutofocusdrive() {
+        return getConfig("autofocusdrive");
+    }
+
+    /**
+     * Gets Set Nikon Control Mode
+     */
+    public String getControlmode() {
+        return getConfig("controlmode");
+    }
+
+    /**
+     * Sets Set Nikon Control Mode
+     */
+    public void setControlmode(String value) {
+        setConfig("controlmode", value);
+    }
+
+    /**
+     * Gets PTP Opcode
+     */
+    public String getOpcode() {
+        return getConfig("opcode");
+    }
+
+    /**
+     * Sets PTP Opcode
+     */
+    public void setOpcode(String value) {
+        setConfig("opcode", value);
+    }
+
+    /**
+     * Gets Camera Date and Time (Read-Only)
+     */
+    public String getDatetime() {
+        return getConfig("datetime");
+    }
+
+    /**
+     * Gets Image Comment
+     */
+    public String getImagecomment() {
+        return getConfig("imagecomment");
+    }
+
+    /**
+     * Sets Image Comment
+     */
+    public void setImagecomment(String value) {
+        setConfig("imagecomment", value);
+    }
+
+    public enum ImagecommentenableOption {
+        ON("On"),
+        OFF("Off");
+
+        private final String gphotoValue;
+        ImagecommentenableOption(String gphotoValue) { this.gphotoValue = gphotoValue; }
+        public String getGphotoValue() { return gphotoValue; }
+    }
+
+    /**
+     * Gets Enable Image Comment
+     */
+    public String getImagecommentenable() {
+        return getConfig("imagecommentenable");
+    }
+
+    /**
+     * Sets Enable Image Comment
+     */
+    public void setImagecommentenable(ImagecommentenableOption value) {
+        setConfig("imagecommentenable", value.getGphotoValue());
+    }
+
+    public enum LcdofftimeOption {
+        _10_SECONDS("10 seconds"),
+        _20_SECONDS("20 seconds"),
+        _1_MINUTE("1 minute"),
+        _5_MINUTES("5 minutes"),
+        _10_MINUTES("10 minutes");
+
+        private final String gphotoValue;
+        LcdofftimeOption(String gphotoValue) { this.gphotoValue = gphotoValue; }
+        public String getGphotoValue() { return gphotoValue; }
+    }
+
+    /**
+     * Gets LCD Off Time
+     */
+    public String getLcdofftime() {
+        return getConfig("lcdofftime");
+    }
+
+    /**
+     * Sets LCD Off Time
+     */
+    public void setLcdofftime(LcdofftimeOption value) {
+        setConfig("lcdofftime", value.getGphotoValue());
+    }
+
+    public enum RecordingmediaOption {
+        CARD("Card"),
+        SDRAM("SDRAM");
+
+        private final String gphotoValue;
+        RecordingmediaOption(String gphotoValue) { this.gphotoValue = gphotoValue; }
+        public String getGphotoValue() { return gphotoValue; }
+    }
+
+    /**
+     * Gets Recording Media
+     */
+    public String getRecordingmedia() {
+        return getConfig("recordingmedia");
+    }
+
+    /**
+     * Sets Recording Media
+     */
+    public void setRecordingmedia(RecordingmediaOption value) {
+        setConfig("recordingmedia", value.getGphotoValue());
+    }
+
+    public enum CsmmenuOption {
+        ON("On"),
+        OFF("Off");
+
+        private final String gphotoValue;
+        CsmmenuOption(String gphotoValue) { this.gphotoValue = gphotoValue; }
+        public String getGphotoValue() { return gphotoValue; }
+    }
+
+    /**
+     * Gets CSM Menu
+     */
+    public String getCsmmenu() {
+        return getConfig("csmmenu");
+    }
+
+    /**
+     * Sets CSM Menu
+     */
+    public void setCsmmenu(CsmmenuOption value) {
+        setConfig("csmmenu", value.getGphotoValue());
+    }
+
+    public enum ReversedialOption {
+        ON("On"),
+        OFF("Off");
+
+        private final String gphotoValue;
+        ReversedialOption(String gphotoValue) { this.gphotoValue = gphotoValue; }
+        public String getGphotoValue() { return gphotoValue; }
+    }
+
+    /**
+     * Gets Reverse Command Dial
+     */
+    public String getReversedial() {
+        return getConfig("reversedial");
+    }
+
+    /**
+     * Sets Reverse Command Dial
+     */
+    public void setReversedial(ReversedialOption value) {
+        setConfig("reversedial", value.getGphotoValue());
+    }
+
+    /**
+     * Gets CCD Number (Read-Only)
+     */
+    public String getCcdnumber() {
+        return getConfig("ccdnumber");
+    }
+
+    public enum ThumbsizeOption {
+        NORMAL("normal"),
+        LARGE("large");
+
+        private final String gphotoValue;
+        ThumbsizeOption(String gphotoValue) { this.gphotoValue = gphotoValue; }
+        public String getGphotoValue() { return gphotoValue; }
+    }
+
+    /**
+     * Gets Thumb Size
+     */
+    public String getThumbsize() {
+        return getConfig("thumbsize");
+    }
+
+    /**
+     * Sets Thumb Size
+     */
+    public void setThumbsize(ThumbsizeOption value) {
+        setConfig("thumbsize", value.getGphotoValue());
+    }
+
+    /**
+     * Gets Fast Filesystem (Read-Only)
+     */
+    public String getFastfs() {
+        return getConfig("fastfs");
+    }
+
+    public enum CapturetargetOption {
+        INTERNAL_RAM("Internal RAM"),
+        MEMORY_CARD("Memory card");
+
+        private final String gphotoValue;
+        CapturetargetOption(String gphotoValue) { this.gphotoValue = gphotoValue; }
+        public String getGphotoValue() { return gphotoValue; }
+    }
+
+    /**
+     * Gets Capture Target
+     */
+    public String getCapturetarget() {
+        return getConfig("capturetarget");
+    }
+
+    /**
+     * Sets Capture Target
+     */
+    public void setCapturetarget(CapturetargetOption value) {
+        setConfig("capturetarget", value.getGphotoValue());
+    }
+
+    public enum AutofocusOption {
+        ON("On"),
+        OFF("Off");
+
+        private final String gphotoValue;
+        AutofocusOption(String gphotoValue) { this.gphotoValue = gphotoValue; }
+        public String getGphotoValue() { return gphotoValue; }
+    }
+
+    /**
+     * Gets Autofocus
+     */
+    public String getAutofocus() {
+        return getConfig("autofocus");
+    }
+
+    /**
+     * Sets Autofocus
+     */
+    public void setAutofocus(AutofocusOption value) {
+        setConfig("autofocus", value.getGphotoValue());
+    }
+
+    /**
+     * Gets Serial Number (Read-Only)
+     */
+    public String getSerialnumber() {
+        return getConfig("serialnumber");
+    }
+
+    /**
+     * Gets Camera Manufacturer (Read-Only)
+     */
+    public String getManufacturer() {
+        return getConfig("manufacturer");
+    }
+
+    /**
+     * Gets Camera Model (Read-Only)
+     */
+    public String getCameramodel() {
+        return getConfig("cameramodel");
+    }
+
+    /**
+     * Gets Device Version (Read-Only)
+     */
+    public String getDeviceversion() {
+        return getConfig("deviceversion");
+    }
+
+    /**
+     * Gets Vendor Extension (Read-Only)
+     */
+    public String getVendorextension() {
+        return getConfig("vendorextension");
+    }
+
+    /**
+     * Gets AC Power (Read-Only)
+     */
+    public String getAcpower() {
+        return getConfig("acpower");
+    }
+
+    /**
+     * Gets External Flash (Read-Only)
+     */
+    public String getExternalflash() {
+        return getConfig("externalflash");
+    }
+
+    /**
+     * Gets Battery Level (Read-Only)
+     */
+    public String getBatterylevel() {
+        return getConfig("batterylevel");
+    }
+
+    /**
+     * Gets Camera Orientation (Read-Only)
+     */
+    public String getOrientation() {
+        return getConfig("orientation");
+    }
+
+    /**
+     * Gets Flash Open (Read-Only)
+     */
+    public String getFlashopen() {
+        return getConfig("flashopen");
+    }
+
+    /**
+     * Gets Flash Charged (Read-Only)
+     */
+    public String getFlashcharged() {
+        return getConfig("flashcharged");
+    }
+
+    /**
+     * Gets Lens Name (Read-Only)
+     */
+    public String getLensname() {
+        return getConfig("lensname");
+    }
+
+    /**
+     * Gets Focal Length Minimum (Read-Only)
+     */
+    public String getMinfocallength() {
+        return getConfig("minfocallength");
+    }
+
+    /**
+     * Gets Focal Length Maximum (Read-Only)
+     */
+    public String getMaxfocallength() {
+        return getConfig("maxfocallength");
+    }
+
+    /**
+     * Gets Maximum Aperture at Focal Length Minimum (Read-Only)
+     */
+    public String getApertureatminfocallength() {
+        return getConfig("apertureatminfocallength");
+    }
+
+    /**
+     * Gets Maximum Aperture at Focal Length Maximum (Read-Only)
+     */
+    public String getApertureatmaxfocallength() {
+        return getConfig("apertureatmaxfocallength");
+    }
+
+    /**
+     * Gets Low Light (Read-Only)
+     */
+    public String getLowlight() {
+        return getConfig("lowlight");
+    }
+
+    /**
+     * Gets Light Meter (Read-Only)
+     */
+    public String getLightmeter() {
+        return getConfig("lightmeter");
+    }
+
+    /**
+     * Gets AF Locked (Read-Only)
+     */
+    public String getAflocked() {
+        return getConfig("aflocked");
+    }
+
+    /**
+     * Gets AE Locked (Read-Only)
+     */
+    public String getAelocked() {
+        return getConfig("aelocked");
+    }
+
+    /**
+     * Gets FV Locked (Read-Only)
+     */
+    public String getFvlocked() {
+        return getConfig("fvlocked");
+    }
+
+    public enum ImagesizeOption {
+        _3008X2000("3008x2000"),
+        _2240X1488("2240x1488"),
+        _1504X1000("1504x1000");
+
+        private final String gphotoValue;
+        ImagesizeOption(String gphotoValue) { this.gphotoValue = gphotoValue; }
+        public String getGphotoValue() { return gphotoValue; }
+    }
+
+    /**
+     * Gets Image Size
+     */
+    public String getImagesize() {
+        return getConfig("imagesize");
+    }
+
+    /**
+     * Sets Image Size
+     */
+    public void setImagesize(ImagesizeOption value) {
+        setConfig("imagesize", value.getGphotoValue());
+    }
+
+    public enum IsoOption {
+        _200("200"),
+        _250("250"),
+        _320("320"),
+        _400("400"),
+        _500("500"),
+        _640("640"),
+        _800("800"),
+        _1000("1000"),
+        _1250("1250"),
+        _1600("1600");
+
+        private final String gphotoValue;
+        IsoOption(String gphotoValue) { this.gphotoValue = gphotoValue; }
+        public String getGphotoValue() { return gphotoValue; }
+    }
+
+    /**
+     * Gets ISO Speed
+     */
+    public String getIso() {
+        return getConfig("iso");
+    }
+
+    /**
+     * Sets ISO Speed
+     */
+    public void setIso(IsoOption value) {
+        setConfig("iso", value.getGphotoValue());
+    }
+
+    public enum AutoisoOption {
+        ON("On"),
+        OFF("Off");
+
+        private final String gphotoValue;
+        AutoisoOption(String gphotoValue) { this.gphotoValue = gphotoValue; }
+        public String getGphotoValue() { return gphotoValue; }
+    }
+
+    /**
+     * Gets Auto ISO
+     */
+    public String getAutoiso() {
+        return getConfig("autoiso");
+    }
+
+    /**
+     * Sets Auto ISO
+     */
+    public void setAutoiso(AutoisoOption value) {
+        setConfig("autoiso", value.getGphotoValue());
+    }
+
+    public enum WhitebalanceOption {
+        AUTOMATIC("Automatic"),
+        DAYLIGHT("Daylight"),
+        FLUORESCENT("Fluorescent"),
+        TUNGSTEN("Tungsten"),
+        FLASH("Flash"),
+        CLOUDY("Cloudy"),
+        SHADE("Shade"),
+        PRESET("Preset");
+
+        private final String gphotoValue;
+        WhitebalanceOption(String gphotoValue) { this.gphotoValue = gphotoValue; }
+        public String getGphotoValue() { return gphotoValue; }
+    }
+
+    /**
+     * Gets WhiteBalance
+     */
+    public String getWhitebalance() {
+        return getConfig("whitebalance");
+    }
+
+    /**
+     * Sets WhiteBalance
+     */
+    public void setWhitebalance(WhitebalanceOption value) {
+        setConfig("whitebalance", value.getGphotoValue());
+    }
+
+    public enum ColormodelOption {
+        SRGB__PORTRAIT_("sRGB (portrait)"),
+        ADOBERGB("AdobeRGB"),
+        SRGB__NATURE_("sRGB (nature)");
+
+        private final String gphotoValue;
+        ColormodelOption(String gphotoValue) { this.gphotoValue = gphotoValue; }
+        public String getGphotoValue() { return gphotoValue; }
+    }
+
+    /**
+     * Gets Color Model
+     */
+    public String getColormodel() {
+        return getConfig("colormodel");
+    }
+
+    /**
+     * Sets Color Model
+     */
+    public void setColormodel(ColormodelOption value) {
+        setConfig("colormodel", value.getGphotoValue());
+    }
+
+    public enum MinimumshutterspeedOption {
+        _1_2000("1/2000"),
+        _1_1600("1/1600"),
+        _1_1250("1/1250"),
+        _1_1000("1/1000"),
+        _1_800("1/800"),
+        _1_640("1/640"),
+        _1_500("1/500"),
+        _1_400("1/400"),
+        _1_320("1/320"),
+        _1_250("1/250"),
+        _1_200("1/200"),
+        _1_160("1/160"),
+        _1_125("1/125");
+
+        private final String gphotoValue;
+        MinimumshutterspeedOption(String gphotoValue) { this.gphotoValue = gphotoValue; }
+        public String getGphotoValue() { return gphotoValue; }
+    }
+
+    /**
+     * Gets Minimum Shutter Speed
+     */
+    public String getMinimumshutterspeed() {
+        return getConfig("minimumshutterspeed");
+    }
+
+    /**
+     * Sets Minimum Shutter Speed
+     */
+    public void setMinimumshutterspeed(MinimumshutterspeedOption value) {
+        setConfig("minimumshutterspeed", value.getGphotoValue());
+    }
+
+    public enum FlashshutterspeedOption {
+        _1_60S("1/60s"),
+        _1_30S("1/30s"),
+        _1_15S("1/15s"),
+        _1_8S("1/8s"),
+        _1_4S("1/4s"),
+        _1_2S("1/2s"),
+        _1S("1s"),
+        _2S("2s"),
+        _4S("4s"),
+        _8S("8s"),
+        _15S("15s"),
+        _30S("30s");
+
+        private final String gphotoValue;
+        FlashshutterspeedOption(String gphotoValue) { this.gphotoValue = gphotoValue; }
+        public String getGphotoValue() { return gphotoValue; }
+    }
+
+    /**
+     * Gets Flash Shutter Speed
+     */
+    public String getFlashshutterspeed() {
+        return getConfig("flashshutterspeed");
+    }
+
+    /**
+     * Sets Flash Shutter Speed
+     */
+    public void setFlashshutterspeed(FlashshutterspeedOption value) {
+        setConfig("flashshutterspeed", value.getGphotoValue());
+    }
+
+    public enum LongexpnrOption {
+        ON("On"),
+        OFF("Off");
+
+        private final String gphotoValue;
+        LongexpnrOption(String gphotoValue) { this.gphotoValue = gphotoValue; }
+        public String getGphotoValue() { return gphotoValue; }
+    }
+
+    /**
+     * Gets Long Exp Noise Reduction
+     */
+    public String getLongexpnr() {
+        return getConfig("longexpnr");
+    }
+
+    /**
+     * Sets Long Exp Noise Reduction
+     */
+    public void setLongexpnr(LongexpnrOption value) {
+        setConfig("longexpnr", value.getGphotoValue());
+    }
+
+    public enum AssistlightOption {
+        ON("On"),
+        OFF("Off");
+
+        private final String gphotoValue;
+        AssistlightOption(String gphotoValue) { this.gphotoValue = gphotoValue; }
+        public String getGphotoValue() { return gphotoValue; }
+    }
+
+    /**
+     * Gets Assist Light
+     */
+    public String getAssistlight() {
+        return getConfig("assistlight");
+    }
+
+    /**
+     * Sets Assist Light
+     */
+    public void setAssistlight(AssistlightOption value) {
+        setConfig("assistlight", value.getGphotoValue());
+    }
+
+    public enum ExposurecompensationOption {
+        _5("-5"),
+        _4_5("-4.5"),
+        _4("-4"),
+        _3_5("-3.5"),
+        _3("-3"),
+        _2_5("-2.5"),
+        _2("-2"),
+        _1_5("-1.5"),
+        _1("-1"),
+        _0_5("-0.5"),
+        _0("0");
+
+        private final String gphotoValue;
+        ExposurecompensationOption(String gphotoValue) { this.gphotoValue = gphotoValue; }
+        public String getGphotoValue() { return gphotoValue; }
+    }
+
+    /**
+     * Gets Exposure Compensation
+     */
+    public String getExposurecompensation() {
+        return getConfig("exposurecompensation");
+    }
+
+    /**
+     * Sets Exposure Compensation
+     */
+    public void setExposurecompensation(ExposurecompensationOption value) {
+        setConfig("exposurecompensation", value.getGphotoValue());
+    }
+
+    public enum Exposurecompensation2Option {
+        ON("On"),
+        OFF("Off");
+
+        private final String gphotoValue;
+        Exposurecompensation2Option(String gphotoValue) { this.gphotoValue = gphotoValue; }
+        public String getGphotoValue() { return gphotoValue; }
+    }
+
+    /**
+     * Gets Exposure Compensation
+     */
+    public String getExposurecompensation2() {
+        return getConfig("exposurecompensation2");
+    }
+
+    /**
+     * Sets Exposure Compensation
+     */
+    public void setExposurecompensation2(Exposurecompensation2Option value) {
+        setConfig("exposurecompensation2", value.getGphotoValue());
+    }
+
+    public enum FlashmodeOption {
+        FLASH_OFF("Flash off"),
+        RED_EYE_AUTOMATIC("Red-eye automatic"),
+        AUTO("Auto");
+
+        private final String gphotoValue;
+        FlashmodeOption(String gphotoValue) { this.gphotoValue = gphotoValue; }
+        public String getGphotoValue() { return gphotoValue; }
+    }
+
+    /**
+     * Gets Flash Mode
+     */
+    public String getFlashmode() {
+        return getConfig("flashmode");
+    }
+
+    /**
+     * Sets Flash Mode
+     */
+    public void setFlashmode(FlashmodeOption value) {
+        setConfig("flashmode", value.getGphotoValue());
+    }
+
+    public enum NikonflashmodeOption {
+        ITTL("iTTL"),
+        MANUAL("Manual"),
+        COMMANDER("Commander");
+
+        private final String gphotoValue;
+        NikonflashmodeOption(String gphotoValue) { this.gphotoValue = gphotoValue; }
+        public String getGphotoValue() { return gphotoValue; }
+    }
+
+    /**
+     * Gets Nikon Flash Mode
+     */
+    public String getNikonflashmode() {
+        return getConfig("nikonflashmode");
+    }
+
+    /**
+     * Sets Nikon Flash Mode
+     */
+    public void setNikonflashmode(NikonflashmodeOption value) {
+        setConfig("nikonflashmode", value.getGphotoValue());
+    }
+
+    public enum FlashcommandermodeOption {
+        TTL("TTL"),
+        AUTO_APERTURE("Auto Aperture"),
+        FULL_MANUAL("Full Manual");
+
+        private final String gphotoValue;
+        FlashcommandermodeOption(String gphotoValue) { this.gphotoValue = gphotoValue; }
+        public String getGphotoValue() { return gphotoValue; }
+    }
+
+    /**
+     * Gets Flash Commander Mode
+     */
+    public String getFlashcommandermode() {
+        return getConfig("flashcommandermode");
+    }
+
+    /**
+     * Sets Flash Commander Mode
+     */
+    public void setFlashcommandermode(FlashcommandermodeOption value) {
+        setConfig("flashcommandermode", value.getGphotoValue());
+    }
+
+    public enum FlashcommanderpowerOption {
+        FULL("Full"),
+        _1_2("1/2"),
+        _1_4("1/4"),
+        _1_8("1/8"),
+        _1_16("1/16"),
+        _1_32("1/32"),
+        _1_64("1/64"),
+        _1_128("1/128");
+
+        private final String gphotoValue;
+        FlashcommanderpowerOption(String gphotoValue) { this.gphotoValue = gphotoValue; }
+        public String getGphotoValue() { return gphotoValue; }
+    }
+
+    /**
+     * Gets Flash Commander Power
+     */
+    public String getFlashcommanderpower() {
+        return getConfig("flashcommanderpower");
+    }
+
+    /**
+     * Sets Flash Commander Power
+     */
+    public void setFlashcommanderpower(FlashcommanderpowerOption value) {
+        setConfig("flashcommanderpower", value.getGphotoValue());
+    }
+
+    public enum AfAreaIlluminationOption {
+        AUTO("Auto"),
+        OFF("Off"),
+        ON("On");
+
+        private final String gphotoValue;
+        AfAreaIlluminationOption(String gphotoValue) { this.gphotoValue = gphotoValue; }
+        public String getGphotoValue() { return gphotoValue; }
+    }
+
+    /**
+     * Gets AF Area Illumination
+     */
+    public String getAfAreaIllumination() {
+        return getConfig("af-area-illumination");
+    }
+
+    /**
+     * Sets AF Area Illumination
+     */
+    public void setAfAreaIllumination(AfAreaIlluminationOption value) {
+        setConfig("af-area-illumination", value.getGphotoValue());
+    }
+
+    public enum AfbeepOption {
+        ON("On"),
+        OFF("Off");
+
+        private final String gphotoValue;
+        AfbeepOption(String gphotoValue) { this.gphotoValue = gphotoValue; }
+        public String getGphotoValue() { return gphotoValue; }
+    }
+
+    /**
+     * Gets AF Beep Mode
+     */
+    public String getAfbeep() {
+        return getConfig("afbeep");
+    }
+
+    /**
+     * Sets AF Beep Mode
+     */
+    public void setAfbeep(AfbeepOption value) {
+        setConfig("afbeep", value.getGphotoValue());
+    }
+
+    public enum FNumberOption {
+        F_3_5("f/3.5"),
+        F_4("f/4"),
+        F_4_8("f/4.8"),
+        F_5_6("f/5.6"),
+        F_6_7("f/6.7"),
+        F_8("f/8"),
+        F_9_5("f/9.5"),
+        F_11("f/11"),
+        F_13("f/13"),
+        F_16("f/16"),
+        F_19("f/19"),
+        F_22("f/22");
+
+        private final String gphotoValue;
+        FNumberOption(String gphotoValue) { this.gphotoValue = gphotoValue; }
+        public String getGphotoValue() { return gphotoValue; }
+    }
+
+    /**
+     * Gets F-Number
+     */
+    public String getFNumber() {
+        return getConfig("f-number");
+    }
+
+    /**
+     * Sets F-Number
+     */
+    public void setFNumber(FNumberOption value) {
+        setConfig("f-number", value.getGphotoValue());
+    }
+
+    /**
+     * Gets Flexible Program (Read-Only)
+     */
+    public String getFlexibleprogram() {
+        return getConfig("flexibleprogram");
+    }
+
+    public enum ImagequalityOption {
+        JPEG_BASIC("JPEG Basic"),
+        JPEG_NORMAL("JPEG Normal"),
+        JPEG_FINE("JPEG Fine"),
+        NEF__RAW_("NEF (Raw)"),
+        NEF_BASIC("NEF+Basic");
+
+        private final String gphotoValue;
+        ImagequalityOption(String gphotoValue) { this.gphotoValue = gphotoValue; }
+        public String getGphotoValue() { return gphotoValue; }
+    }
+
+    /**
+     * Gets Image Quality
+     */
+    public String getImagequality() {
+        return getConfig("imagequality");
+    }
+
+    /**
+     * Sets Image Quality
+     */
+    public void setImagequality(ImagequalityOption value) {
+        setConfig("imagequality", value.getGphotoValue());
+    }
+
+    /**
+     * Gets Focal Length (Read-Only)
+     */
+    public String getFocallength() {
+        return getConfig("focallength");
+    }
+
+    /**
+     * Gets Focus Mode (Read-Only)
+     */
+    public String getFocusmode() {
+        return getConfig("focusmode");
+    }
+
+    public enum Focusmode2Option {
+        AF_S("AF-S"),
+        AF_C("AF-C");
+
+        private final String gphotoValue;
+        Focusmode2Option(String gphotoValue) { this.gphotoValue = gphotoValue; }
+        public String getGphotoValue() { return gphotoValue; }
+    }
+
+    /**
+     * Gets Focus Mode 2
+     */
+    public String getFocusmode2() {
+        return getConfig("focusmode2");
+    }
+
+    /**
+     * Sets Focus Mode 2
+     */
+    public void setFocusmode2(Focusmode2Option value) {
+        setConfig("focusmode2", value.getGphotoValue());
+    }
+
+    /**
+     * Gets Exposure Program (Read-Only)
+     */
+    public String getExpprogram() {
+        return getConfig("expprogram");
+    }
+
+    public enum CapturemodeOption {
+        SINGLE_SHOT("Single Shot"),
+        BURST("Burst"),
+        TIMER("Timer"),
+        REMOTE("Remote"),
+        QUICK_RESPONSE_REMOTE("Quick Response Remote");
+
+        private final String gphotoValue;
+        CapturemodeOption(String gphotoValue) { this.gphotoValue = gphotoValue; }
+        public String getGphotoValue() { return gphotoValue; }
+    }
+
+    /**
+     * Gets Still Capture Mode
+     */
+    public String getCapturemode() {
+        return getConfig("capturemode");
+    }
+
+    /**
+     * Sets Still Capture Mode
+     */
+    public void setCapturemode(CapturemodeOption value) {
+        setConfig("capturemode", value.getGphotoValue());
+    }
+
+    public enum FocusmetermodeOption {
+        MULTI_SPOT("Multi-spot"),
+        SINGLE_AREA("Single Area"),
+        CLOSEST_SUBJECT("Closest Subject");
+
+        private final String gphotoValue;
+        FocusmetermodeOption(String gphotoValue) { this.gphotoValue = gphotoValue; }
+        public String getGphotoValue() { return gphotoValue; }
+    }
+
+    /**
+     * Gets Focus Metering Mode
+     */
+    public String getFocusmetermode() {
+        return getConfig("focusmetermode");
+    }
+
+    /**
+     * Sets Focus Metering Mode
+     */
+    public void setFocusmetermode(FocusmetermodeOption value) {
+        setConfig("focusmetermode", value.getGphotoValue());
+    }
+
+    public enum ExposuremetermodeOption {
+        CENTER_WEIGHTED("Center Weighted"),
+        MULTI_SPOT("Multi Spot"),
+        CENTER_SPOT("Center Spot");
+
+        private final String gphotoValue;
+        ExposuremetermodeOption(String gphotoValue) { this.gphotoValue = gphotoValue; }
+        public String getGphotoValue() { return gphotoValue; }
+    }
+
+    /**
+     * Gets Exposure Metering Mode
+     */
+    public String getExposuremetermode() {
+        return getConfig("exposuremetermode");
+    }
+
+    /**
+     * Sets Exposure Metering Mode
+     */
+    public void setExposuremetermode(ExposuremetermodeOption value) {
+        setConfig("exposuremetermode", value.getGphotoValue());
+    }
+
+    /**
+     * Gets Shutter Speed (Read-Only)
+     */
+    public String getShutterspeed() {
+        return getConfig("shutterspeed");
+    }
+
+    /**
+     * Gets Shutter Speed 2 (Read-Only)
+     */
+    public String getShutterspeed2() {
+        return getConfig("shutterspeed2");
+    }
+
+    public enum FocusareawrapOption {
+        ON("On"),
+        OFF("Off");
+
+        private final String gphotoValue;
+        FocusareawrapOption(String gphotoValue) { this.gphotoValue = gphotoValue; }
+        public String getGphotoValue() { return gphotoValue; }
+    }
+
+    /**
+     * Gets Focus Area Wrap
+     */
+    public String getFocusareawrap() {
+        return getConfig("focusareawrap");
+    }
+
+    /**
+     * Sets Focus Area Wrap
+     */
+    public void setFocusareawrap(FocusareawrapOption value) {
+        setConfig("focusareawrap", value.getGphotoValue());
+    }
+
+    public enum ExposurelockOption {
+        ON("On"),
+        OFF("Off");
+
+        private final String gphotoValue;
+        ExposurelockOption(String gphotoValue) { this.gphotoValue = gphotoValue; }
+        public String getGphotoValue() { return gphotoValue; }
+    }
+
+    /**
+     * Gets Exposure Lock
+     */
+    public String getExposurelock() {
+        return getConfig("exposurelock");
+    }
+
+    /**
+     * Sets Exposure Lock
+     */
+    public void setExposurelock(ExposurelockOption value) {
+        setConfig("exposurelock", value.getGphotoValue());
+    }
+
+    public enum AelaflmodeOption {
+        AE_AF_LOCK("AE/AF Lock"),
+        AE_LOCK_ONLY("AE Lock only"),
+        AF_LOCK_ONLY("AF Lock Only"),
+        AF_LOCK_HOLD("AF Lock Hold"),
+        AF_ON("AF On"),
+        FLASH_LEVEL_LOCK("Flash Level Lock");
+
+        private final String gphotoValue;
+        AelaflmodeOption(String gphotoValue) { this.gphotoValue = gphotoValue; }
+        public String getGphotoValue() { return gphotoValue; }
+    }
+
+    /**
+     * Gets AE-L/AF-L Mode
+     */
+    public String getAelaflmode() {
+        return getConfig("aelaflmode");
+    }
+
+    /**
+     * Sets AE-L/AF-L Mode
+     */
+    public void setAelaflmode(AelaflmodeOption value) {
+        setConfig("aelaflmode", value.getGphotoValue());
+    }
+
+    public enum FilenrsequencingOption {
+        ON("On"),
+        OFF("Off");
+
+        private final String gphotoValue;
+        FilenrsequencingOption(String gphotoValue) { this.gphotoValue = gphotoValue; }
+        public String getGphotoValue() { return gphotoValue; }
+    }
+
+    /**
+     * Gets File Number Sequencing
+     */
+    public String getFilenrsequencing() {
+        return getConfig("filenrsequencing");
+    }
+
+    /**
+     * Sets File Number Sequencing
+     */
+    public void setFilenrsequencing(FilenrsequencingOption value) {
+        setConfig("filenrsequencing", value.getGphotoValue());
+    }
+
+    public enum FlashsignOption {
+        ON("On"),
+        OFF("Off");
+
+        private final String gphotoValue;
+        FlashsignOption(String gphotoValue) { this.gphotoValue = gphotoValue; }
+        public String getGphotoValue() { return gphotoValue; }
+    }
+
+    /**
+     * Gets Flash Sign
+     */
+    public String getFlashsign() {
+        return getConfig("flashsign");
+    }
+
+    /**
+     * Sets Flash Sign
+     */
+    public void setFlashsign(FlashsignOption value) {
+        setConfig("flashsign", value.getGphotoValue());
+    }
+
+    public enum ViewfindergridOption {
+        ON("On"),
+        OFF("Off");
+
+        private final String gphotoValue;
+        ViewfindergridOption(String gphotoValue) { this.gphotoValue = gphotoValue; }
+        public String getGphotoValue() { return gphotoValue; }
+    }
+
+    /**
+     * Gets Viewfinder Grid
+     */
+    public String getViewfindergrid() {
+        return getConfig("viewfindergrid");
+    }
+
+    /**
+     * Sets Viewfinder Grid
+     */
+    public void setViewfindergrid(ViewfindergridOption value) {
+        setConfig("viewfindergrid", value.getGphotoValue());
+    }
+
+    public enum ImagereviewOption {
+        ON("On"),
+        OFF("Off");
+
+        private final String gphotoValue;
+        ImagereviewOption(String gphotoValue) { this.gphotoValue = gphotoValue; }
+        public String getGphotoValue() { return gphotoValue; }
+    }
+
+    /**
+     * Gets Image Review
+     */
+    public String getImagereview() {
+        return getConfig("imagereview");
+    }
+
+    /**
+     * Sets Image Review
+     */
+    public void setImagereview(ImagereviewOption value) {
+        setConfig("imagereview", value.getGphotoValue());
+    }
+
+    public enum ImagerotationflagOption {
+        ON("On"),
+        OFF("Off");
+
+        private final String gphotoValue;
+        ImagerotationflagOption(String gphotoValue) { this.gphotoValue = gphotoValue; }
+        public String getGphotoValue() { return gphotoValue; }
+    }
+
+    /**
+     * Gets Image Rotation Flag
+     */
+    public String getImagerotationflag() {
+        return getConfig("imagerotationflag");
+    }
+
+    /**
+     * Sets Image Rotation Flag
+     */
+    public void setImagerotationflag(ImagerotationflagOption value) {
+        setConfig("imagerotationflag", value.getGphotoValue());
+    }
+
+    public enum NocfcardreleaseOption {
+        ON("On"),
+        OFF("Off");
+
+        private final String gphotoValue;
+        NocfcardreleaseOption(String gphotoValue) { this.gphotoValue = gphotoValue; }
+        public String getGphotoValue() { return gphotoValue; }
+    }
+
+    /**
+     * Gets Release without CF card
+     */
+    public String getNocfcardrelease() {
+        return getConfig("nocfcardrelease");
+    }
+
+    /**
+     * Sets Release without CF card
+     */
+    public void setNocfcardrelease(NocfcardreleaseOption value) {
+        setConfig("nocfcardrelease", value.getGphotoValue());
+    }
+
+    public enum FlashmodemanualpowerOption {
+        FULL("Full"),
+        _1_2("1/2"),
+        _1_4("1/4"),
+        _1_8("1/8"),
+        _1_16("1/16");
+
+        private final String gphotoValue;
+        FlashmodemanualpowerOption(String gphotoValue) { this.gphotoValue = gphotoValue; }
+        public String getGphotoValue() { return gphotoValue; }
+    }
+
+    /**
+     * Gets Flash Mode Manual Power
+     */
+    public String getFlashmodemanualpower() {
+        return getConfig("flashmodemanualpower");
+    }
+
+    /**
+     * Sets Flash Mode Manual Power
+     */
+    public void setFlashmodemanualpower(FlashmodemanualpowerOption value) {
+        setConfig("flashmodemanualpower", value.getGphotoValue());
+    }
+
+    public enum AutofocusareaOption {
+        CENTRE("Centre"),
+        TOP("Top"),
+        BOTTOM("Bottom"),
+        LEFT("Left"),
+        RIGHT("Right");
+
+        private final String gphotoValue;
+        AutofocusareaOption(String gphotoValue) { this.gphotoValue = gphotoValue; }
+        public String getGphotoValue() { return gphotoValue; }
+    }
+
+    /**
+     * Gets Auto Focus Area
+     */
+    public String getAutofocusarea() {
+        return getConfig("autofocusarea");
+    }
+
+    /**
+     * Sets Auto Focus Area
+     */
+    public void setAutofocusarea(AutofocusareaOption value) {
+        setConfig("autofocusarea", value.getGphotoValue());
+    }
+
+    /**
+     * Gets Flash Exposure Compensation (Read-Only)
+     */
+    public String getFlashexposurecompensation() {
+        return getConfig("flashexposurecompensation");
+    }
+
+    public enum BracketingOption {
+        ON("On"),
+        OFF("Off");
+
+        private final String gphotoValue;
+        BracketingOption(String gphotoValue) { this.gphotoValue = gphotoValue; }
+        public String getGphotoValue() { return gphotoValue; }
+    }
+
+    /**
+     * Gets Bracketing
+     */
+    public String getBracketing() {
+        return getConfig("bracketing");
+    }
+
+    /**
+     * Sets Bracketing
+     */
+    public void setBracketing(BracketingOption value) {
+        setConfig("bracketing", value.getGphotoValue());
+    }
+
+    public enum EvstepOption {
+        _1_3("1/3"),
+        _1_2("1/2"),
+        UNKNOWN_VALUE_0002("Unknown value 0002");
+
+        private final String gphotoValue;
+        EvstepOption(String gphotoValue) { this.gphotoValue = gphotoValue; }
+        public String getGphotoValue() { return gphotoValue; }
+    }
+
+    /**
+     * Gets EV Step
+     */
+    public String getEvstep() {
+        return getConfig("evstep");
+    }
+
+    /**
+     * Sets EV Step
+     */
+    public void setEvstep(EvstepOption value) {
+        setConfig("evstep", value.getGphotoValue());
+    }
+
+    public enum BracketsetOption {
+        AE___FLASH("AE & Flash"),
+        AE_ONLY("AE only"),
+        FLASH_ONLY("Flash only"),
+        WB_BRACKETING("WB bracketing");
+
+        private final String gphotoValue;
+        BracketsetOption(String gphotoValue) { this.gphotoValue = gphotoValue; }
+        public String getGphotoValue() { return gphotoValue; }
+    }
+
+    /**
+     * Gets Bracket Set
+     */
+    public String getBracketset() {
+        return getConfig("bracketset");
+    }
+
+    /**
+     * Sets Bracket Set
+     */
+    public void setBracketset(BracketsetOption value) {
+        setConfig("bracketset", value.getGphotoValue());
+    }
+
+    public enum BracketorderOption {
+        MTR___UNDER("MTR > Under"),
+        UNDER___MTR("Under > MTR");
+
+        private final String gphotoValue;
+        BracketorderOption(String gphotoValue) { this.gphotoValue = gphotoValue; }
+        public String getGphotoValue() { return gphotoValue; }
+    }
+
+    /**
+     * Gets Bracket Order
+     */
+    public String getBracketorder() {
+        return getConfig("bracketorder");
+    }
+
+    /**
+     * Sets Bracket Order
+     */
+    public void setBracketorder(BracketorderOption value) {
+        setConfig("bracketorder", value.getGphotoValue());
+    }
+
+    public enum WbbracketingstepOption {
+        _1_EV("1 EV"),
+        _2_EV("2 EV"),
+        _3_EV("3 EV");
+
+        private final String gphotoValue;
+        WbbracketingstepOption(String gphotoValue) { this.gphotoValue = gphotoValue; }
+        public String getGphotoValue() { return gphotoValue; }
+    }
+
+    /**
+     * Gets WB Bracketing Step
+     */
+    public String getWbbracketingstep() {
+        return getConfig("wbbracketingstep");
+    }
+
+    /**
+     * Sets WB Bracketing Step
+     */
+    public void setWbbracketingstep(WbbracketingstepOption value) {
+        setConfig("wbbracketingstep", value.getGphotoValue());
+    }
+
+    public enum AebracketingpatternOption {
+        _2_IMAGES__NORMAL_AND_UNDER_("2 images (normal and under)"),
+        _2_IMAGES__NORMAL_AND_OVER_("2 images (normal and over)"),
+        _3_IMAGES__NORMAL_AND_2_UNDERS_("3 images (normal and 2 unders)");
+
+        private final String gphotoValue;
+        AebracketingpatternOption(String gphotoValue) { this.gphotoValue = gphotoValue; }
+        public String getGphotoValue() { return gphotoValue; }
+    }
+
+    /**
+     * Gets AE Bracketing Pattern
+     */
+    public String getAebracketingpattern() {
+        return getConfig("aebracketingpattern");
+    }
+
+    /**
+     * Sets AE Bracketing Pattern
+     */
+    public void setAebracketingpattern(AebracketingpatternOption value) {
+        setConfig("aebracketingpattern", value.getGphotoValue());
+    }
+
+    public enum WbbracketingpatternOption {
+        _2_IMAGES__NORMAL_AND_UNDER_("2 images (normal and under)"),
+        _2_IMAGES__NORMAL_AND_OVER_("2 images (normal and over)"),
+        _3_IMAGES__NORMAL_AND_2_UNDERS_("3 images (normal and 2 unders)");
+
+        private final String gphotoValue;
+        WbbracketingpatternOption(String gphotoValue) { this.gphotoValue = gphotoValue; }
+        public String getGphotoValue() { return gphotoValue; }
+    }
+
+    /**
+     * Gets WB Bracketing Pattern
+     */
+    public String getWbbracketingpattern() {
+        return getConfig("wbbracketingpattern");
+    }
+
+    /**
+     * Sets WB Bracketing Pattern
+     */
+    public void setWbbracketingpattern(WbbracketingpatternOption value) {
+        setConfig("wbbracketingpattern", value.getGphotoValue());
+    }
+
+    /**
+     * Gets AE Bracketing Count (Read-Only)
+     */
+    public String getAebracketingcount() {
+        return getConfig("aebracketingcount");
+    }
+
+    /**
+     * Gets Burst Number (Read-Only)
+     */
+    public String getBurstnumber() {
+        return getConfig("burstnumber");
+    }
+
+    /**
+     * Gets Maximum Shots (Read-Only)
+     */
+    public String getMaximumshots() {
+        return getConfig("maximumshots");
+    }
+
+    /**
+     * Gets Auto White Balance Bias (Read-Only)
+     */
+    public String getAutowhitebias() {
+        return getConfig("autowhitebias");
+    }
+
+    /**
+     * Gets Tungsten White Balance Bias (Read-Only)
+     */
+    public String getTungstenwhitebias() {
+        return getConfig("tungstenwhitebias");
+    }
+
+    /**
+     * Gets Fluorescent White Balance Bias (Read-Only)
+     */
+    public String getFlourescentwhitebias() {
+        return getConfig("flourescentwhitebias");
+    }
+
+    /**
+     * Gets Daylight White Balance Bias (Read-Only)
+     */
+    public String getDaylightwhitebias() {
+        return getConfig("daylightwhitebias");
+    }
+
+    /**
+     * Gets Flash White Balance Bias (Read-Only)
+     */
+    public String getFlashwhitebias() {
+        return getConfig("flashwhitebias");
+    }
+
+    /**
+     * Gets Cloudy White Balance Bias (Read-Only)
+     */
+    public String getCloudywhitebias() {
+        return getConfig("cloudywhitebias");
+    }
+
+    /**
+     * Gets Shady White Balance Bias (Read-Only)
+     */
+    public String getShadewhitebias() {
+        return getConfig("shadewhitebias");
+    }
+
+    public enum WhitebiaspresetnoOption {
+        _0("0"),
+        _1("1");
+
+        private final String gphotoValue;
+        WhitebiaspresetnoOption(String gphotoValue) { this.gphotoValue = gphotoValue; }
+        public String getGphotoValue() { return gphotoValue; }
+    }
+
+    /**
+     * Gets White Balance Bias Preset Nr
+     */
+    public String getWhitebiaspresetno() {
+        return getConfig("whitebiaspresetno");
+    }
+
+    /**
+     * Sets White Balance Bias Preset Nr
+     */
+    public void setWhitebiaspresetno(WhitebiaspresetnoOption value) {
+        setConfig("whitebiaspresetno", value.getGphotoValue());
+    }
+
+    /**
+     * Gets White Balance Bias Preset 0 (Read-Only)
+     */
+    public String getWhitebiaspreset0() {
+        return getConfig("whitebiaspreset0");
+    }
+
+    /**
+     * Gets White Balance Bias Preset 1 (Read-Only)
+     */
+    public String getWhitebiaspreset1() {
+        return getConfig("whitebiaspreset1");
+    }
+
+    public enum SelftimerdelayOption {
+        _2_SECONDS("2 seconds"),
+        _5_SECONDS("5 seconds"),
+        _10_SECONDS("10 seconds"),
+        _20_SECONDS("20 seconds");
+
+        private final String gphotoValue;
+        SelftimerdelayOption(String gphotoValue) { this.gphotoValue = gphotoValue; }
+        public String getGphotoValue() { return gphotoValue; }
+    }
+
+    /**
+     * Gets Selftimer Delay
+     */
+    public String getSelftimerdelay() {
+        return getConfig("selftimerdelay");
+    }
+
+    /**
+     * Sets Selftimer Delay
+     */
+    public void setSelftimerdelay(SelftimerdelayOption value) {
+        setConfig("selftimerdelay", value.getGphotoValue());
+    }
+
+    public enum CenterweightsizeOption {
+        _6_MM("6 mm"),
+        _8_MM("8 mm"),
+        _10_MM("10 mm"),
+        _12_MM("12 mm");
+
+        private final String gphotoValue;
+        CenterweightsizeOption(String gphotoValue) { this.gphotoValue = gphotoValue; }
+        public String getGphotoValue() { return gphotoValue; }
+    }
+
+    /**
+     * Gets Center Weight Area
+     */
+    public String getCenterweightsize() {
+        return getConfig("centerweightsize");
+    }
+
+    /**
+     * Sets Center Weight Area
+     */
+    public void setCenterweightsize(CenterweightsizeOption value) {
+        setConfig("centerweightsize", value.getGphotoValue());
+    }
+
+    public enum RemotetimeoutOption {
+        _1_MINUTE("1 minute"),
+        _5_MINUTES("5 minutes"),
+        _10_MINUTES("10 minutes"),
+        _15_MINUTES("15 minutes");
+
+        private final String gphotoValue;
+        RemotetimeoutOption(String gphotoValue) { this.gphotoValue = gphotoValue; }
+        public String getGphotoValue() { return gphotoValue; }
+    }
+
+    /**
+     * Gets Remote Timeout
+     */
+    public String getRemotetimeout() {
+        return getConfig("remotetimeout");
+    }
+
+    /**
+     * Sets Remote Timeout
+     */
+    public void setRemotetimeout(RemotetimeoutOption value) {
+        setConfig("remotetimeout", value.getGphotoValue());
+    }
+
+    public enum OptimizeimageOption {
+        NORMAL("Normal"),
+        VIVID("Vivid"),
+        SHARPER("Sharper"),
+        SOFTER("Softer"),
+        DIRECT_PRINT("Direct Print"),
+        PORTRAIT("Portrait"),
+        LANDSCAPE("Landscape"),
+        CUSTOM("Custom");
+
+        private final String gphotoValue;
+        OptimizeimageOption(String gphotoValue) { this.gphotoValue = gphotoValue; }
+        public String getGphotoValue() { return gphotoValue; }
+    }
+
+    /**
+     * Gets Optimize Image
+     */
+    public String getOptimizeimage() {
+        return getConfig("optimizeimage");
+    }
+
+    /**
+     * Sets Optimize Image
+     */
+    public void setOptimizeimage(OptimizeimageOption value) {
+        setConfig("optimizeimage", value.getGphotoValue());
+    }
+
+    public enum SharpeningOption {
+        AUTO("Auto"),
+        NORMAL("Normal"),
+        LOW("Low"),
+        MEDIUM_LOW("Medium Low"),
+        MEDIUM_HIGH("Medium high"),
+        HIGH("High"),
+        NONE("None");
+
+        private final String gphotoValue;
+        SharpeningOption(String gphotoValue) { this.gphotoValue = gphotoValue; }
+        public String getGphotoValue() { return gphotoValue; }
+    }
+
+    /**
+     * Gets Sharpening
+     */
+    public String getSharpening() {
+        return getConfig("sharpening");
+    }
+
+    /**
+     * Sets Sharpening
+     */
+    public void setSharpening(SharpeningOption value) {
+        setConfig("sharpening", value.getGphotoValue());
+    }
+
+    public enum TonecompensationOption {
+        AUTO("Auto"),
+        NORMAL("Normal"),
+        LOW_CONTRAST("Low contrast"),
+        MEDIUM_LOW("Medium Low"),
+        MEDIUM_HIGH("Medium High"),
+        HIGH_CONTROL("High control"),
+        CUSTOM("Custom");
+
+        private final String gphotoValue;
+        TonecompensationOption(String gphotoValue) { this.gphotoValue = gphotoValue; }
+        public String getGphotoValue() { return gphotoValue; }
+    }
+
+    /**
+     * Gets Tone Compensation
+     */
+    public String getTonecompensation() {
+        return getConfig("tonecompensation");
+    }
+
+    /**
+     * Sets Tone Compensation
+     */
+    public void setTonecompensation(TonecompensationOption value) {
+        setConfig("tonecompensation", value.getGphotoValue());
+    }
+
+    public enum SaturationOption {
+        NORMAL("Normal"),
+        MODERATE("Moderate"),
+        ENHANCED("Enhanced");
+
+        private final String gphotoValue;
+        SaturationOption(String gphotoValue) { this.gphotoValue = gphotoValue; }
+        public String getGphotoValue() { return gphotoValue; }
+    }
+
+    /**
+     * Gets Saturation
+     */
+    public String getSaturation() {
+        return getConfig("saturation");
+    }
+
+    /**
+     * Sets Saturation
+     */
+    public void setSaturation(SaturationOption value) {
+        setConfig("saturation", value.getGphotoValue());
+    }
+
+    /**
+     * Gets Hue Adjustment (Read-Only)
+     */
+    public String getHueadjustment() {
+        return getConfig("hueadjustment");
+    }
+
+    /**
+     * Gets Battery Level (Read-Only)
+     */
+    public String get5001() {
+        return getConfig("5001");
+    }
+
+    /**
+     * Gets Image Size (Read-Only)
+     */
+    public String get5003() {
+        return getConfig("5003");
+    }
+
+    /**
+     * Gets Compression Setting (Read-Only)
+     */
+    public String get5004() {
+        return getConfig("5004");
+    }
+
+    /**
+     * Gets White Balance (Read-Only)
+     */
+    public String get5005() {
+        return getConfig("5005");
+    }
+
+    /**
+     * Gets F-Number (Read-Only)
+     */
+    public String get5007() {
+        return getConfig("5007");
+    }
+
+    /**
+     * Gets Focal Length (Read-Only)
+     */
+    public String get5008() {
+        return getConfig("5008");
+    }
+
+    /**
+     * Gets Focus Mode (Read-Only)
+     */
+    public String get500A() {
+        return getConfig("500a");
+    }
+
+    /**
+     * Gets Exposure Metering Mode (Read-Only)
+     */
+    public String get500B() {
+        return getConfig("500b");
+    }
+
+    /**
+     * Gets Flash Mode (Read-Only)
+     */
+    public String get500C() {
+        return getConfig("500c");
+    }
+
+    /**
+     * Gets Exposure Time (Read-Only)
+     */
+    public String get500D() {
+        return getConfig("500d");
+    }
+
+    /**
+     * Gets Exposure Program Mode (Read-Only)
+     */
+    public String get500E() {
+        return getConfig("500e");
+    }
+
+    /**
+     * Gets Exposure Index (film speed ISO) (Read-Only)
+     */
+    public String get500F() {
+        return getConfig("500f");
+    }
+
+    /**
+     * Gets Exposure Bias Compensation (Read-Only)
+     */
+    public String get5010() {
+        return getConfig("5010");
+    }
+
+    /**
+     * Gets Date & Time
+     */
+    public String get5011() {
+        return getConfig("5011");
+    }
+
+    /**
+     * Sets Date & Time
+     */
+    public void set5011(String value) {
+        setConfig("5011", value);
+    }
+
+    /**
+     * Gets Still Capture Mode (Read-Only)
+     */
+    public String get5013() {
+        return getConfig("5013");
+    }
+
+    /**
+     * Gets Burst Number (Read-Only)
+     */
+    public String get5018() {
+        return getConfig("5018");
+    }
+
+    /**
+     * Gets Focus Metering Mode (Read-Only)
+     */
+    public String get501C() {
+        return getConfig("501c");
+    }
+
+    /**
+     * Gets Auto White Balance Bias (Read-Only)
+     */
+    public String getD017() {
+        return getConfig("d017");
+    }
+
+    /**
+     * Gets Tungsten White Balance Bias (Read-Only)
+     */
+    public String getD018() {
+        return getConfig("d018");
+    }
+
+    /**
+     * Gets Fluorescent White Balance Bias (Read-Only)
+     */
+    public String getD019() {
+        return getConfig("d019");
+    }
+
+    /**
+     * Gets Daylight White Balance Bias (Read-Only)
+     */
+    public String getD01A() {
+        return getConfig("d01a");
+    }
+
+    /**
+     * Gets Flash White Balance Bias (Read-Only)
+     */
+    public String getD01B() {
+        return getConfig("d01b");
+    }
+
+    /**
+     * Gets Cloudy White Balance Bias (Read-Only)
+     */
+    public String getD01C() {
+        return getConfig("d01c");
+    }
+
+    /**
+     * Gets Shady White Balance Bias (Read-Only)
+     */
+    public String getD01D() {
+        return getConfig("d01d");
+    }
+
+    /**
+     * Gets White Balance Preset Number (Read-Only)
+     */
+    public String getD01F() {
+        return getConfig("d01f");
+    }
+
+    /**
+     * Gets White Balance Preset Value 0 (Read-Only)
+     */
+    public String getD025() {
+        return getConfig("d025");
+    }
+
+    /**
+     * Gets White Balance Preset Value 1 (Read-Only)
+     */
+    public String getD026() {
+        return getConfig("d026");
+    }
+
+    /**
+     * Gets Sharpening (Read-Only)
+     */
+    public String getD02A() {
+        return getConfig("d02a");
+    }
+
+    /**
+     * Gets Tone Compensation (Read-Only)
+     */
+    public String getD02B() {
+        return getConfig("d02b");
+    }
+
+    /**
+     * Gets Color Model (Read-Only)
+     */
+    public String getD02C() {
+        return getConfig("d02c");
+    }
+
+    /**
+     * Gets Hue Adjustment (Read-Only)
+     */
+    public String getD02D() {
+        return getConfig("d02d");
+    }
+
+    /**
+     * Gets Reset Menu Bank (Read-Only)
+     */
+    public String getD045() {
+        return getConfig("d045");
+    }
+
+    /**
+     * Gets Focus Area Wrap (Read-Only)
+     */
+    public String getD04F() {
+        return getConfig("d04f");
+    }
+
+    /**
+     * Gets Auto ISO (Read-Only)
+     */
+    public String getD054() {
+        return getConfig("d054");
+    }
+
+    /**
+     * Gets Exposure Step (Read-Only)
+     */
+    public String getD056() {
+        return getConfig("d056");
+    }
+
+    /**
+     * Gets Exposure Compensation (Read-Only)
+     */
+    public String getD058() {
+        return getConfig("d058");
+    }
+
+    /**
+     * Gets Centre Weight Area (Read-Only)
+     */
+    public String getD059() {
+        return getConfig("d059");
+    }
+
+    /**
+     * Gets Exposure Lock (Read-Only)
+     */
+    public String getD05E() {
+        return getConfig("d05e");
+    }
+
+    /**
+     * Gets Focus Lock (Read-Only)
+     */
+    public String getD05F() {
+        return getConfig("d05f");
+    }
+
+    /**
+     * Gets Auto Meter Off Time (Read-Only)
+     */
+    public String getD062() {
+        return getConfig("d062");
+    }
+
+    /**
+     * Gets Self Timer Delay (Read-Only)
+     */
+    public String getD063() {
+        return getConfig("d063");
+    }
+
+    /**
+     * Gets LCD Off Time (Read-Only)
+     */
+    public String getD064() {
+        return getConfig("d064");
+    }
+
+    /**
+     * Gets Long Exposure Noise Reduction (Read-Only)
+     */
+    public String getD06B() {
+        return getConfig("d06b");
+    }
+
+    /**
+     * Gets File Number Sequencing (Read-Only)
+     */
+    public String getD06C() {
+        return getConfig("d06c");
+    }
+
+    /**
+     * Gets Flash Shutter Speed (Read-Only)
+     */
+    public String getD075() {
+        return getConfig("d075");
+    }
+
+    /**
+     * Gets Bracket Set (Read-Only)
+     */
+    public String getD078() {
+        return getConfig("d078");
+    }
+
+    /**
+     * Gets Bracket Order (Read-Only)
+     */
+    public String getD07A() {
+        return getConfig("d07a");
+    }
+
+    /**
+     * Gets Reverse Command Dial (Read-Only)
+     */
+    public String getD086() {
+        return getConfig("d086");
+    }
+
+    /**
+     * Gets No CF Card Release (Read-Only)
+     */
+    public String getD08A() {
+        return getConfig("d08a");
+    }
+
+    /**
+     * Gets Image Comment String
+     */
+    public String getD090() {
+        return getConfig("d090");
+    }
+
+    /**
+     * Sets Image Comment String
+     */
+    public void setD090(String value) {
+        setConfig("d090", value);
+    }
+
+    /**
+     * Gets Image Comment Enable (Read-Only)
+     */
+    public String getD091() {
+        return getConfig("d091");
+    }
+
+    /**
+     * Gets Image Rotation (Read-Only)
+     */
+    public String getD092() {
+        return getConfig("d092");
+    }
+
+    /**
+     * Gets Bracketing Enable (Read-Only)
+     */
+    public String getD0C0() {
+        return getConfig("d0c0");
+    }
+
+    /**
+     * Gets Exposure Bracketing Program (Read-Only)
+     */
+    public String getD0C2() {
+        return getConfig("d0c2");
+    }
+
+    /**
+     * Gets Auto Exposure Bracket Count (Read-Only)
+     */
+    public String getD0C3() {
+        return getConfig("d0c3");
+    }
+
+    /**
+     * Gets White Balance Bracket Step (Read-Only)
+     */
+    public String getD0C4() {
+        return getConfig("d0c4");
+    }
+
+    /**
+     * Gets White Balance Bracket Program (Read-Only)
+     */
+    public String getD0C5() {
+        return getConfig("d0c5");
+    }
+
+    /**
+     * Gets Lens ID (Read-Only)
+     */
+    public String getD0E0() {
+        return getConfig("d0e0");
+    }
+
+    /**
+     * Gets Lens Sort (Read-Only)
+     */
+    public String getD0E1() {
+        return getConfig("d0e1");
+    }
+
+    /**
+     * Gets Lens Type (Read-Only)
+     */
+    public String getD0E2() {
+        return getConfig("d0e2");
+    }
+
+    /**
+     * Gets Min. Focal Length (Read-Only)
+     */
+    public String getD0E3() {
+        return getConfig("d0e3");
+    }
+
+    /**
+     * Gets Max. Focal Length (Read-Only)
+     */
+    public String getD0E4() {
+        return getConfig("d0e4");
+    }
+
+    /**
+     * Gets Max. Aperture at Min. Focal Length (Read-Only)
+     */
+    public String getD0E5() {
+        return getConfig("d0e5");
+    }
+
+    /**
+     * Gets Max. Aperture at Max. Focal Length (Read-Only)
+     */
+    public String getD0E6() {
+        return getConfig("d0e6");
+    }
+
+    /**
+     * Gets Nikon Exposure Time (Read-Only)
+     */
+    public String getD100() {
+        return getConfig("d100");
+    }
+
+    /**
+     * Gets AC Power (Read-Only)
+     */
+    public String getD101() {
+        return getConfig("d101");
+    }
+
+    /**
+     * Gets Warning Status (Read-Only)
+     */
+    public String getD102() {
+        return getConfig("d102");
+    }
+
+    /**
+     * Gets Maximum Shots (Read-Only)
+     */
+    public String getD103() {
+        return getConfig("d103");
+    }
+
+    /**
+     * Gets AF Locked (Read-Only)
+     */
+    public String getD104() {
+        return getConfig("d104");
+    }
+
+    /**
+     * Gets AE Locked (Read-Only)
+     */
+    public String getD105() {
+        return getConfig("d105");
+    }
+
+    /**
+     * Gets FV Locked (Read-Only)
+     */
+    public String getD106() {
+        return getConfig("d106");
+    }
+
+    /**
+     * Gets Active AF Sensor (Read-Only)
+     */
+    public String getD108() {
+        return getConfig("d108");
+    }
+
+    /**
+     * Gets Flexible Program (Read-Only)
+     */
+    public String getD109() {
+        return getConfig("d109");
+    }
+
+    /**
+     * Gets Exposure Meter (Read-Only)
+     */
+    public String getD10A() {
+        return getConfig("d10a");
+    }
+
+    /**
+     * Gets CCD Serial Number (Read-Only)
+     */
+    public String getD10D() {
+        return getConfig("d10d");
+    }
+
+    /**
+     * Gets Camera Orientation (Read-Only)
+     */
+    public String getD10E() {
+        return getConfig("d10e");
+    }
+
+    /**
+     * Gets Recording Media (Read-Only)
+     */
+    public String getD10B() {
+        return getConfig("d10b");
+    }
+
+    /**
+     * Gets External Flash Attached (Read-Only)
+     */
+    public String getD120() {
+        return getConfig("d120");
+    }
+
+    /**
+     * Gets External Flash Status (Read-Only)
+     */
+    public String getD121() {
+        return getConfig("d121");
+    }
+
+    /**
+     * Gets External Flash Sort (Read-Only)
+     */
+    public String getD122() {
+        return getConfig("d122");
+    }
+
+    /**
+     * Gets External Flash Compensation (Read-Only)
+     */
+    public String getD124() {
+        return getConfig("d124");
+    }
+
+    /**
+     * Gets External Flash Mode (Read-Only)
+     */
+    public String getD125() {
+        return getConfig("d125");
+    }
+
+    /**
+     * Gets Flash Exposure Compensation (Read-Only)
+     */
+    public String getD126() {
+        return getConfig("d126");
+    }
+
+    /**
+     * Gets Optimize Image (Read-Only)
+     */
+    public String getD140() {
+        return getConfig("d140");
+    }
+
+    /**
+     * Gets Saturation (Read-Only)
+     */
+    public String getD142() {
+        return getConfig("d142");
+    }
+
+    /**
+     * Gets AF Beep Mode (Read-Only)
+     */
+    public String getD160() {
+        return getConfig("d160");
+    }
+
+    /**
+     * Gets Autofocus Mode (Read-Only)
+     */
+    public String getD161() {
+        return getConfig("d161");
+    }
+
+    /**
+     * Gets AF Assist Lamp (Read-Only)
+     */
+    public String getD163() {
+        return getConfig("d163");
+    }
+
+    /**
+     * Gets Auto ISO P/A/DVP Setting (Read-Only)
+     */
+    public String getD164() {
+        return getConfig("d164");
+    }
+
+    /**
+     * Gets Image Review (Read-Only)
+     */
+    public String getD165() {
+        return getConfig("d165");
+    }
+
+    /**
+     * Gets AF Area Illumination (Read-Only)
+     */
+    public String getD166() {
+        return getConfig("d166");
+    }
+
+    /**
+     * Gets Flash Mode (Read-Only)
+     */
+    public String getD167() {
+        return getConfig("d167");
+    }
+
+    /**
+     * Gets Flash Commander Mode (Read-Only)
+     */
+    public String getD168() {
+        return getConfig("d168");
+    }
+
+    /**
+     * Gets Flash Sign (Read-Only)
+     */
+    public String getD169() {
+        return getConfig("d169");
+    }
+
+    /**
+     * Gets Remote Timeout (Read-Only)
+     */
+    public String getD16B() {
+        return getConfig("d16b");
+    }
+
+    /**
+     * Gets Viewfinder Grid Display (Read-Only)
+     */
+    public String getD16C() {
+        return getConfig("d16c");
+    }
+
+    /**
+     * Gets Flash Mode Manual Power (Read-Only)
+     */
+    public String getD16D() {
+        return getConfig("d16d");
+    }
+
+    /**
+     * Gets Flash Mode Commander Power (Read-Only)
+     */
+    public String getD16E() {
+        return getConfig("d16e");
+    }
+
+    /**
+     * Gets CSM Menu (Read-Only)
+     */
+    public String getD180() {
+        return getConfig("d180");
+    }
+
+    /**
+     * Gets Bracketing Frames and Steps (Read-Only)
+     */
+    public String getD190() {
+        return getConfig("d190");
+    }
+
+    /**
+     * Gets Exposure Display Status (Read-Only)
+     */
+    public String getD1B0() {
+        return getConfig("d1b0");
+    }
+
+    /**
+     * Gets Flash Open (Read-Only)
+     */
+    public String getD1C0() {
+        return getConfig("d1c0");
+    }
+
+    /**
+     * Gets Flash Charged (Read-Only)
+     */
+    public String getD1C1() {
+        return getConfig("d1c1");
+    }
+
+

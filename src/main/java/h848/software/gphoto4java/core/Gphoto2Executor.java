@@ -8,20 +8,20 @@ import java.util.Arrays;
 import java.util.List;
 
 /**
- * Třída zodpovědná za nízkoúrovňové volání příkazu gphoto2.
- * Skrývá veškerou logiku ProcessBuilderu.
+ * Class responsible for low-level execution of the gphoto2 command.
+ * Hides all ProcessBuilder logic.
  */
 public class Gphoto2Executor {
 
-    // Výchozí název příkazu (předpokládá se, že gphoto2 je v systémové cestě PATH)
+    // Default command name (assumes gphoto2 is in the system PATH)
     private static final String GPHOTO2_CMD = "gphoto2";
 
     /**
-     * Spustí gphoto2 se zadanými argumenty a vrátí výsledek.
+     * Executes gphoto2 with the given arguments and returns the result.
      * 
-     * @param args Argumenty pro gphoto2 (např. "--auto-detect")
-     * @return CommandResult obsahující výstup, chybový výstup a návratový kód
-     * @throws RuntimeException Pokud dojde k interní chybě I/O nebo přerušení
+     * @param args Arguments for gphoto2 (e.g., "--auto-detect")
+     * @return CommandResult containing stdout, stderr, and exit code
+     * @throws RuntimeException If an internal I/O error or interruption occurs
      */
     public CommandResult execute(String... args) {
         
@@ -33,9 +33,12 @@ public class Gphoto2Executor {
 
         try {
             ProcessBuilder pb = new ProcessBuilder(command);
+            // Force English output for reliable text parsing
+            pb.environment().put("LC_ALL", "C");
+            
             Process process = pb.start();
 
-            // Čtení standardního výstupu
+            // Read standard output
             StringBuilder stdOut = new StringBuilder();
             try (BufferedReader reader = new BufferedReader(new InputStreamReader(process.getInputStream()))) {
                 String line;
@@ -44,7 +47,7 @@ public class Gphoto2Executor {
                 }
             }
 
-            // Čtení chybového výstupu
+            // Read error output
             StringBuilder stdErr = new StringBuilder();
             try (BufferedReader errorReader = new BufferedReader(new InputStreamReader(process.getErrorStream()))) {
                 String line;
@@ -53,13 +56,13 @@ public class Gphoto2Executor {
                 }
             }
 
-            // Čekání na dokončení příkazu
+            // Wait for command completion
             int exitCode = process.waitFor();
 
             return new CommandResult(exitCode, stdOut.toString().trim(), stdErr.toString().trim());
 
-        } catch (IOException | InterruptedException e) {
-            throw new RuntimeException("Kritická chyba při spouštění gphoto2: " + e.getMessage(), e);
+        } catch (Exception e) {
+            throw new RuntimeException("Critical error executing gphoto2: " + e.getMessage(), e);
         }
     }
 }
