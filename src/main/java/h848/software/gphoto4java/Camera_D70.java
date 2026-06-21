@@ -117,6 +117,94 @@ public class Camera_D70 {
         return editable;
     }
 
+    public List<CameraFile> listFiles() {
+        CommandResult result = executor.execute("--list-files");
+        checkErrors(result);
+        
+        List<CameraFile> files = new ArrayList<>();
+        String[] lines = result.getStandardOutput().split("\\r?\\n");
+        
+        String currentFolder = "";
+        for (String line : lines) {
+            line = line.trim();
+            if (line.startsWith("There is no file in folder")) {
+                continue;
+            }
+            if (line.startsWith("There is ")) {
+                int start = line.indexOf("'/");
+                int end = line.lastIndexOf("'");
+                if (start != -1 && end != -1 && end > start) {
+                    currentFolder = line.substring(start + 1, end);
+                }
+            } else if (line.startsWith("#")) {
+                String[] parts = line.split("\\s+");
+                if (parts.length >= 2) {
+                    try {
+                        int index = Integer.parseInt(parts[0].substring(1));
+                        files.add(new CameraFile(currentFolder, parts[1], index));
+                    } catch (NumberFormatException e) {
+                        // ignore unparseable
+                    }
+                }
+            }
+        }
+        return files;
+    }
+
+    public void takePhoto() {
+        CommandResult result = executor.execute("--capture-image");
+        checkErrors(result);
+    }
+
+    public CameraFile takePhotoAndGetFile() {
+        CommandResult result = executor.execute("--capture-image");
+        checkErrors(result);
+        
+        String[] lines = result.getStandardOutput().split("\\r?\\n");
+        String folder = null;
+        String filename = null;
+        for (String line : lines) {
+            if (line.startsWith("New file is in location")) {
+                String[] parts = line.split(" ");
+                if (parts.length >= 6) {
+                    String fullPath = parts[5];
+                    int lastSlash = fullPath.lastIndexOf('/');
+                    if (lastSlash != -1) {
+                        folder = fullPath.substring(0, lastSlash);
+                        filename = fullPath.substring(lastSlash + 1);
+                    }
+                }
+            }
+        }
+        
+        if (folder != null && filename != null) {
+            List<CameraFile> files = listFiles();
+            for (CameraFile cf : files) {
+                if (cf.getFolder().equals(folder) && cf.getFilename().equals(filename)) {
+                    return cf;
+                }
+            }
+            return new CameraFile(folder, filename, -1);
+        }
+        return null;
+    }
+
+    public File downloadFile(CameraFile file) {
+        CommandResult result = executor.execute("--folder", file.getFolder(), "--get-file", String.valueOf(file.getIndex()));
+        checkErrors(result);
+        return new File(file.getFilename());
+    }
+
+    public void deleteFile(CameraFile file) {
+        CommandResult result = executor.execute("--folder", file.getFolder(), "--delete-file", String.valueOf(file.getIndex()));
+        checkErrors(result);
+    }
+
+    public void captureSequence(int frames, int intervalSeconds) {
+        CommandResult result = executor.execute("--capture-image", "-F", String.valueOf(frames), "-I", String.valueOf(intervalSeconds));
+        checkErrors(result);
+    }
+
     /**
      * Gets Bulb Mode (Read-Only)
      */
