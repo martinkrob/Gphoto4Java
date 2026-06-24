@@ -65,4 +65,24 @@ public class Gphoto2Executor {
             throw new RuntimeException("Critical error executing gphoto2: " + e.getMessage(), e);
         }
     }
+
+    /**
+     * Pokusí se uvolnit USB zařízení od operačního systému (např. GNOME Nautilus / gvfs),
+     * který si ho automaticky zamyká jako disk.
+     */
+    public void releaseUsbLock() {
+        try {
+            // Nejtvrdší a nejspolehlivější řešení: zabít proces, který USB blokuje
+            new ProcessBuilder("pkill", "-f", "gvfs-gphoto2-volume-monitor").start().waitFor();
+        } catch (Exception e) {
+            // Ignorujeme
+        }
+        
+        try {
+            // Moderní systémy (Ubuntu/GNOME) - pokus o čistý unmount
+            new ProcessBuilder("gio", "mount", "-s", "gphoto2").start().waitFor();
+        } catch (Exception e) {
+            // Ignorujeme
+        }
+    }
 }
