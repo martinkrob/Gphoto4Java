@@ -8,8 +8,8 @@ import java.util.Arrays;
 import java.util.List;
 
 /**
- * Class responsible for low-level execution of the gphoto2 command.
- * Hides all ProcessBuilder logic.
+ * Class responsible for low-level execution of the gphoto2 command. Hides all
+ * ProcessBuilder logic.
  */
 public class Gphoto2Executor {
 
@@ -18,13 +18,13 @@ public class Gphoto2Executor {
 
     /**
      * Executes gphoto2 with the given arguments and returns the result.
-     * 
+     *
      * @param args Arguments for gphoto2 (e.g., "--auto-detect")
      * @return CommandResult containing stdout, stderr, and exit code
      * @throws RuntimeException If an internal I/O error or interruption occurs
      */
     public CommandResult execute(String... args) {
-        
+
         List<String> command = new ArrayList<>();
         command.add(GPHOTO2_CMD);
         if (args != null) {
@@ -35,7 +35,7 @@ public class Gphoto2Executor {
             ProcessBuilder pb = new ProcessBuilder(command);
             // Force English output for reliable text parsing
             pb.environment().put("LC_ALL", "C");
-            
+
             Process process = pb.start();
 
             // Read standard output
@@ -61,7 +61,7 @@ public class Gphoto2Executor {
 
             return new CommandResult(exitCode, stdOut.toString().trim(), stdErr.toString().trim());
 
-        } catch (Exception e) {
+        } catch (IOException | InterruptedException e) {
             throw new RuntimeException("Critical error executing gphoto2: " + e.getMessage(), e);
         }
     }

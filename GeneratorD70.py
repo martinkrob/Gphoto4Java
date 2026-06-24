@@ -297,31 +297,31 @@ public class Camera_D70 {
             java_code += "    }\n\n"
             
             # Getter vracející String
-            java_code += f"    /**\n     * Gets {label}\n     */\n"
+            java_code += f"    /**\n     * Gets {label}\n     * @return current value of {label}\n     */\n"
             java_code += f"    public String get{method_name}() {{\n"
             java_code += f'        return getConfig("{prop_name}");\n'
             java_code += "    }\n\n"
             
             # Setter přijímající Enum
-            java_code += f"    /**\n     * Sets {label}\n     */\n"
+            java_code += f"    /**\n     * Sets {label}\n     * @param value new value to set\n     */\n"
             java_code += f"    public void set{method_name}({enum_name} value) {{\n"
             java_code += f'        setConfig("{prop_name}", value.getGphotoValue());\n'
             java_code += "    }\n\n"
             
         elif not readonly and prop_type == 'TEXT':
             # Text getter and setter
-            java_code += f"    /**\n     * Gets {label}\n     */\n"
+            java_code += f"    /**\n     * Gets {label}\n     * @return current value of {label}\n     */\n"
             java_code += f"    public String get{method_name}() {{\n"
             java_code += f'        return getConfig("{prop_name}");\n'
             java_code += "    }\n\n"
             
-            java_code += f"    /**\n     * Sets {label}\n     */\n"
+            java_code += f"    /**\n     * Sets {label}\n     * @param value new value to set\n     */\n"
             java_code += f"    public void set{method_name}(String value) {{\n"
             java_code += f'        setConfig("{prop_name}", value);\n'
             java_code += "    }\n\n"
             
         else: # Readonly nebo jiné
-            java_code += f"    /**\n     * Gets {label} (Read-Only)\n     */\n"
+            java_code += f"    /**\n     * Gets {label} (Read-Only)\n     * @return current value of {label}\n     */\n"
             java_code += f"    public String get{method_name}() {{\n"
             java_code += f'        return getConfig("{prop_name}");\n'
             java_code += "    }\n\n"
